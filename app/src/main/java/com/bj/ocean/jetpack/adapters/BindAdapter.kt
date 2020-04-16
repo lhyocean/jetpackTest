@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 /**
  * Created by ocean on 2020-04-13
  *
- * 自定义属性，绑定数据
+ *
  *
  *
  *
