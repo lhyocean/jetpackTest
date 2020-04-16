@@ -11,7 +11,7 @@ import androidx.room.TypeConverters
 @Database(entities = [Plant::class],version = 1,exportSchema = false)
 @TypeConverters
 abstract class AppDatabase :RoomDatabase(){
-
+   abstract fun plantDao():PlantDao
 
 
 
