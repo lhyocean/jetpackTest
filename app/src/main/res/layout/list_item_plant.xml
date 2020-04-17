@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="plant" type="com.bj.ocean.jetpack.data.Plant"/>
+
+        <variable name="clickListener" type="android.view.View.OnClickListener"/>
+
+    </data>
+    <com.bj.ocean.jetpack.MaskedCardView
+            style="@style/ShapeAppearance.Sunflower.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="@{clickListener}"
+            app:cardElevation="2dp"
+            app:cardPreventCornerOverlap="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:contentDescription="@string/a11y_plant_item_image"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:imageFromUrl="@{plant.imageUrl}"
+                    android:layout_width="0dp"
+                    android:layout_height="95dp"
+            />
+
+
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.bj.ocean.jetpack.MaskedCardView>
+</layout>

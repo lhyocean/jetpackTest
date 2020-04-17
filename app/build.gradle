@@ -27,6 +27,18 @@ android {
     dataBinding {
         enabled = true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+      /**
+       *  Cannot inline bytecode buit with JVM target 1.8 into bytecode that is being built with JVM target 1.6.Please specify proper '-jvm-target' option
+       *
+       * **/
+    kotlinOptions{
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {

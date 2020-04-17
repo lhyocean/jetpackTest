@@ -14,14 +14,6 @@ class StartActivity : AppCompatActivity() {
         setContentView<StartActivityBinding>(this,R.layout.start_activity)
 
 
-        if (savedInstanceState!=null){
-
-
-
-
-
-        }
-
 
 
 //        if (savedInstanceState == null) {
