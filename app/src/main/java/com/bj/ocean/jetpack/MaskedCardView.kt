@@ -6,6 +6,7 @@ import android.graphics.Canvas
 import android.graphics.Path
 import android.graphics.RectF
 import android.util.AttributeSet
+import com.google.android.material.R
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.shape.ShapeAppearanceModel
 import com.google.android.material.shape.ShapeAppearancePathProvider
@@ -15,19 +16,19 @@ import com.google.android.material.shape.ShapeAppearancePathProvider
  * Created by ocean on 2020-04-17
  * @describe:
  */
-class MaskedCardView(
+class MaskedCardView @JvmOverloads constructor(
     context: Context,
-    attributes: AttributeSet? = null,
-    defstyle: Int = R.attr.materialCardViewStyle
-) : MaterialCardView(context, attributes, defstyle) {
+    attrs: AttributeSet? = null,
+    defStyle: Int = R.attr.materialCardViewStyle
+) : MaterialCardView(context, attrs, defStyle) {
     @SuppressLint("RestrictedApi")
     private val pathProvider = ShapeAppearancePathProvider()
     private val path: Path = Path()
     private val shapeAppearance: ShapeAppearanceModel = ShapeAppearanceModel(
         context,
-        attributes,
-        defstyle,
-        com.google.android.material.R.style.Widget_MaterialComponents_CardView
+        attrs,
+        defStyle,
+        R.style.Widget_MaterialComponents_CardView
     )
     private val rectF = RectF(0f, 0f, 0f, 0f)
 
@@ -43,6 +44,4 @@ class MaskedCardView(
         pathProvider.calculatePath(shapeAppearance, 1f, rectF, path)
         super.onSizeChanged(w, h, oldw, oldh)
     }
-
-
 }

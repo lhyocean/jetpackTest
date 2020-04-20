@@ -16,7 +16,7 @@ import com.bj.ocean.jetpack.workers.SeedDatabaseWorker
  * @describe:
  */
 @Database(entities = [Plant::class],version = 1,exportSchema = false)
-@TypeConverters
+@TypeConverters(Converters::class)
 abstract class AppDatabase :RoomDatabase(){
    abstract fun plantDao():PlantDao
 

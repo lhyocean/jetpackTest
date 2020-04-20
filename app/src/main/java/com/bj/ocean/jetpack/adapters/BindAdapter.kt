@@ -1,5 +1,6 @@
 package com.bj.ocean.jetpack.adapters
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -22,13 +23,16 @@ fun bindIsGone(view: View, isGone: Boolean) {
 }
 
 
-@BindingAdapter("app:imageFromUrl")
-fun bindImageFromUrl(view: ImageView, imageUrl: String) {
+@BindingAdapter("imageFromUrl")
+fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
     if (!imageUrl.isNullOrEmpty()) {
+        Log.e("BindingAdapter",imageUrl+"0000")
         Glide.with(view.context)
             .load(imageUrl)
             .transition(DrawableTransitionOptions.withCrossFade()).into(view)
     }
+
+
 
 }
 

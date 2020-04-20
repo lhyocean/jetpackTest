@@ -17,7 +17,7 @@ interface PlantDao {
      *
      */
     @Query("select * from plants order by name")
-    fun  getPlants():List<Plant>
+    fun  getPlants():LiveData<List<Plant>>
 
 
     @Query("select * from plants where id = :plantId")
@@ -25,6 +25,12 @@ interface PlantDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(plants: List<Plant>)
+
+    @Query("select * from plants where growZoneNumber = :growZoneNumber order by name")
+    fun getPlantsWithGrowZoneNumber(growZoneNumber:Int):LiveData<List<Plant>>
+
+
+
 
 
 

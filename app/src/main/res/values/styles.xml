@@ -3,9 +3,15 @@
     <!-- Base application theme. -->
     <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/sunflower_green_500</item>
+        <item name="colorOnPrimary">@color/sunflower_yellow_500</item>
+        <item name="colorPrimaryDark">@color/sunflower_green_700</item>
+        <item name="colorOnSurface">@color/sunflower_black</item>
+        <item name="colorAccent">@color/sunflower_green_700</item>
+        <item name="colorSurface">@color/sunflower_gray_50</item>
+        <item name="colorSecondary">@color/sunflower_yellow_500</item>
+        <item name="android:colorBackground">@color/sunflower_green_500</item>
+
     </style>
 
 
@@ -22,9 +28,6 @@
     <style name="TextAppearance.Sunflower.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5" >
         <item name="android:textColor">#fff</item>
     </style>
-
-
-
 
 
     <style name="ShapeAppearance.Sunflower.Card" parent="ShapeAppearance.MaterialComponents">

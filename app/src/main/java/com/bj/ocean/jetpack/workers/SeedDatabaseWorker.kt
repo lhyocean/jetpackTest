@@ -18,27 +18,27 @@ import kotlin.Exception
  * Created by ocean on 2020-04-16
  * @describe:
  */
-  class SeedDatabaseWorker
-    (context: Context
-,workerParameters: WorkerParameters):
-    CoroutineWorker(context,workerParameters){
+class SeedDatabaseWorker(
+    context: Context
+    , workerParameters: WorkerParameters
+) :
+    CoroutineWorker(context, workerParameters) {
 
-    override suspend fun doWork(): Result = coroutineScope{
+    override suspend fun doWork(): Result = coroutineScope {
         try {
             applicationContext.assets.open(PLANT_DATA_FILENAME).use {
                 JsonReader(it.reader()).use {
-                    val plantType=object :TypeToken<List<Plant>>(){}.type
-                    val plantLsit:List<Plant> =Gson().fromJson(it,plantType)
-                    val database=AppDatabase.getInstance(applicationContext)
+                    val plantType = object : TypeToken<List<Plant>>() {}.type
+                    val plantLsit: List<Plant> = Gson().fromJson(it, plantType)
+                    val database = AppDatabase.getInstance(applicationContext)
                     database.plantDao().insertAll(plantLsit)
                     Result.success()
                 }
             }
-        }catch (e:Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
             Result.failure()
         }
-
 
 
     }
