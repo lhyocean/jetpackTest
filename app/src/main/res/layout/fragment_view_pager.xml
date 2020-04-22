@@ -48,13 +48,14 @@
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
             <com.google.android.material.tabs.TabLayout
-                    app:tabIndicatorColor="@color/sunflower_yellow_500"
+
+                    app:tabIndicatorColor="@color/sunflower_yellow_300"
+                    android:background="@color/sunflower_green_500"
                     android:id="@+id/tabs"
-                    app:tabTextColor="@color/cardview_dark_background"
+                    app:tabTextColor="@color/tab_text_color_selector"
                     app:tabIconTint="@drawable/tab_icon_color_selector"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"/>
-
 
         </com.google.android.material.appbar.AppBarLayout>
 
