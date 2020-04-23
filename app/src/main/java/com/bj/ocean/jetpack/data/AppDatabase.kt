@@ -15,13 +15,14 @@ import com.bj.ocean.jetpack.workers.SeedDatabaseWorker
  * Created by ocean on 2020-04-16
  * @describe:
  */
-@Database(entities = [Plant::class],version = 1,exportSchema = false)
+@Database(entities = [Plant::class,GardenPlanting::class],version = 1,exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase :RoomDatabase(){
    abstract fun plantDao():PlantDao
+   abstract fun gardenPlantingDao(): GardenPlantingDao
 
 
-   companion object{
+    companion object{
       @Volatile private var instance:AppDatabase?=null
 
       fun getInstance(context: Context) :AppDatabase{

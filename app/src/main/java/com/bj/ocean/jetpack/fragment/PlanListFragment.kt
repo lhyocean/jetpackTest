@@ -7,8 +7,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.bj.ocean.jetpack.R
 import com.bj.ocean.jetpack.adapters.PlantAdapter
-import com.bj.ocean.jetpack.data.AppDatabase
-import com.bj.ocean.jetpack.data.PlantRepository
 import com.bj.ocean.jetpack.databinding.FragmentPlantListBinding
 import com.bj.ocean.jetpack.utils.InjectUtils
 import com.bj.ocean.jetpack.viewmodel.PlantListViewModel
@@ -21,7 +19,7 @@ class PlanListFragment :Fragment(){
 
 
     private val viewModel:PlantListViewModel by viewModels {
-        InjectUtils.providePLantListViewModelFactory(this)
+        InjectUtils.providePlantListViewModelFactory(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

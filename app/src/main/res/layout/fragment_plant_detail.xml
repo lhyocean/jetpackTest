@@ -4,7 +4,10 @@
     <data>
 
         <import type="com.bj.ocean.jetpack.data.Plant"/>
-
+        <variable name="viewModel"
+                  type="com.bj.ocean.jetpack.viewmodel.PlantDetailViewModel"/>
+        <variable name="callback"
+                  type="com.bj.ocean.jetpack.fragment.PlantDetailFragment.Callback"/>
 
     </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -34,12 +37,14 @@
                     app:contentScrim="?attr/colorSurface"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed"
                     app:statusBarScrim="?attr/colorSurface"
-                    app:title="dadadadasdas"
+                    app:title="@{viewModel.plant.name}"
                     app:titleEnabled="false"
                     app:toolbarId="@id/toolbar"
             >
 
                 <ImageView
+                        android:id="@+id/detail_image"
+                        app:imageFromUrl="@{viewModel.plant.imageUrl}"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/plant_detail_app_bar_height"
                         android:fitsSystemWindows="true"
@@ -69,6 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
+                android:paddingBottom="@dimen/fab_bottom_padding"
                 android:fitsSystemWindows="true"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -83,7 +89,8 @@
                           app:layout_constraintTop_toTopOf="parent"
                           app:layout_constraintEnd_toEndOf="parent"
                           android:layout_marginLeft="10dp"
-                          android:text="00000000"
+
+                          android:text="@{viewModel.plant.name}"
                           android:layout_marginEnd="10dp"
                           android:id="@+id/plant_detail_name"
                           android:layout_height="wrap_content"/>

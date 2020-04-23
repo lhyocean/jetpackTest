@@ -31,7 +31,6 @@ fun bindIsGone(view: View, isGone: Boolean) {
 @BindingAdapter("imageFromUrl")
 fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
     if (!imageUrl.isNullOrEmpty()) {
-        Log.e("BindingAdapter",imageUrl+"0000")
         Glide.with(view.context)
             .setDefaultRequestOptions(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.AUTOMATIC))
             .load(imageUrl)
@@ -41,7 +40,7 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
 
 
 @BindingAdapter("renderHtml")
-fun bindReaderHtml(view: TextView,string: String){
+fun bindReaderHtml(view: TextView,string: String?){
     if (string!=null){
         view.text=HtmlCompat.fromHtml(string,HtmlCompat.FROM_HTML_MODE_COMPACT)
         view.movementMethod=LinkMovementMethod.getInstance()
