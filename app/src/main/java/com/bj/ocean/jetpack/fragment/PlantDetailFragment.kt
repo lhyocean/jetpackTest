@@ -1,10 +1,12 @@
 package com.bj.ocean.jetpack.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.app.ShareCompat
 import androidx.core.widget.NestedScrollView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -87,9 +89,26 @@ class PlantDetailFragment : Fragment() {
         return binding.root
     }
 
+    @Suppress("DEPRECATION")
     private fun toShareIntent() {
 
+        val shareText=plantDetailViewModel.plant.value.let {
+            if (it==null){
+                ""
+            }else{
+                it.name
+            }
+        }
 
+          activity?.let {
+              val intent=ShareCompat.IntentBuilder.from(it)
+                  .setText(shareText)
+                  .setType("text/plain")
+                  .createChooserIntent()
+                  .addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT or Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+              startActivity(intent)
+
+          }
     }
 
     private fun hideAppBarFab(fab: FloatingActionButton) {
