@@ -13,19 +13,6 @@ class StartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView<StartActivityBinding>(this,R.layout.start_activity)
 
-
-
-
-//        if (savedInstanceState == null) {
-////            supportFragmentManager.beginTransaction()
-////                .replace(R.id.container, StartFragment.newInstance())
-////                .commitNow()
-////        }
-
-
-
-
-
     }
 
 }
