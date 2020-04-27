@@ -2,7 +2,7 @@ jetpackTest
 ===========
 A gardening app illustrating Android development best practices with Android Jetpack.
 
-Android Sunflower is currently under heavy development.
+Android jetpackTest is currently under heavy development.
 Note that some changes (such as database schema modifications) are not backwards
 compatible and may cause the app to crash. In this
 case, please uninstall and re-install the app.
@@ -67,3 +67,10 @@ Libraries Used
 [35]: https://developer.android.com/guide/topics/ui/declaring-layout
 [90]: https://bumptech.github.io/glide/
 [91]: https://kotlinlang.org/docs/reference/coroutines-overview.html
+
+
+
+thanks 
+-------------
+sunflower
+
