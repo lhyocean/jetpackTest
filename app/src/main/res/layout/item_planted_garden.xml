@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="clickListener" type="android.view.View.OnClickListener"/>
+        <variable name="viewModel" type="com.bj.ocean.jetpack.viewmodel.PlantAndGardenPlantingsViewModel"/>
 
     </data>
     <com.bj.ocean.jetpack.MaskedCardView
@@ -13,13 +14,13 @@
             app:cardPreventCornerOverlap="false"
             app:shapeAppearanceOverlay="@style/ShapeAppearance.Sunflower.Card"
 
-
     >
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
             <ImageView
+                    app:imageFromUrl="@{viewModel.imageUrl}"
                     android:id="@+id/image"
                     android:layout_width="0dp"
                     android:layout_height="95dp"
@@ -29,11 +30,11 @@
                     app:layout_constraintTop_toTopOf="parent"/>
             <TextView
                     android:id="@+id/plant_name"
-                    android:layout_marginTop="16dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:gravity="center_horizontal"
-                    android:text="苹果"
+                    android:text="@{viewModel.plantName}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -41,40 +42,40 @@
             />
             <TextView
                     android:id="@+id/plant_date_header"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:gravity="center_horizontal"
                     android:text="@string/plant_date_header"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
                     android:textColor="?attr/colorAccent"
-                    android:layout_marginTop="16dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/plant_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
+                    app:layout_constraintTop_toBottomOf="@+id/plant_name"/>
             <TextView
                     android:id="@+id/plant_date"
-                    android:gravity="center_horizontal"
-                    android:text="12233"
-                    android:textSize="15sp"
-                    android:textColor="#333"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:gravity="center_horizontal"
+                    android:text="@{viewModel.plantDateString}"
+                    android:textColor="#333"
+                    android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/plant_date_header"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
+                    app:layout_constraintTop_toBottomOf="@+id/plant_date_header"/>
 
             <TextView
                     android:id="@+id/watered_date_header"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_normal"
+                    android:gravity="center_horizontal"
                     android:text="@string/watered_date_header"
-                    android:textStyle="bold"
                     android:textAppearance="?attr/textAppearanceSubtitle2"
                     android:textColor="?attr/colorAccent"
-                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/plant_date"/>
@@ -84,28 +85,26 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
-                    android:text="dadad"
                     android:gravity="center_horizontal"
+                    android:text="@{viewModel.waterDateString}"
                     android:textAppearance="?attr/textAppearanceSubtitle2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/watered_date_header" />
+                    app:layout_constraintTop_toBottomOf="@id/watered_date_header"/>
 
             <TextView
-                    android:text="dasdadasdasdasddadada"
                     android:id="@+id/water_interval"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
                     android:layout_marginBottom="@dimen/margin_normal"
                     android:gravity="center_horizontal"
+                    android:text="@{@plurals/watering_next(viewModel.wateringInterval, viewModel.wateringInterval)}"
                     android:textAppearance="?attr/textAppearanceSubtitle2"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/water_date"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-
-
+                    app:layout_constraintTop_toBottomOf="@id/water_date"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

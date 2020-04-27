@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import com.bj.ocean.jetpack.data.AppDatabase
 import com.bj.ocean.jetpack.data.GardenPlantingRepository
-import com.bj.ocean.jetpack.data.Plant
 import com.bj.ocean.jetpack.data.PlantRepository
+import com.bj.ocean.jetpack.viewmodel.GardenPlantListViewModelFactory
 import com.bj.ocean.jetpack.viewmodel.PlantDetailViewModelFactory
 import com.bj.ocean.jetpack.viewmodel.PlantListViewModelFactory
 
@@ -32,7 +32,6 @@ object InjectUtils {
         )
     }
 
-
     fun providePlantDetailViewModelFactory(
         context: Context,
         plantId: String
@@ -41,5 +40,11 @@ object InjectUtils {
             getPlantRepository(context),
             getGardenPlantingRepository(context), plantId
         )
+    }
+
+    fun provideGardenPlantingListViewModelFactory(context: Context): GardenPlantListViewModelFactory {
+
+        return GardenPlantListViewModelFactory(getGardenPlantingRepository(context))
+
     }
 }
