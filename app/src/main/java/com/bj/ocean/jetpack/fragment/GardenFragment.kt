@@ -27,7 +27,6 @@ class GardenFragment : Fragment() {
         InjectUtils.provideGardenPlantingListViewModelFactory(requireContext())
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,10 +34,12 @@ class GardenFragment : Fragment() {
     ): View? {
         binding= FragmentGardenBinding.inflate(inflater,container,false)
         val adapter=GardenPlantingAdapter()
+
         binding.gardenList.adapter=adapter
         binding.addPlant.setOnClickListener{
             navigateToPlantListPage()
         }
+
         subscribeUi(binding,adapter)
         return binding.root
     }
@@ -52,6 +53,9 @@ class GardenFragment : Fragment() {
         viewModel.plantAndGardenPlantings.observe(viewLifecycleOwner){
             result->
             binding.hasPlants= !result.isNullOrEmpty()
+            for (i in result.indices){
+
+            }
             adapter.submitList(result)
         }
 

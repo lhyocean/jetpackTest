@@ -3,6 +3,7 @@
     <data>
         <variable name="clickListener" type="android.view.View.OnClickListener"/>
         <variable name="viewModel" type="com.bj.ocean.jetpack.viewmodel.PlantAndGardenPlantingsViewModel"/>
+        <variable name="longClickListener" type="android.view.View.OnLongClickListener"/>
 
     </data>
     <com.bj.ocean.jetpack.MaskedCardView
@@ -10,6 +11,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:onClick="@{clickListener}"
+            android:onLongClick="@{longClickListener}"
             app:cardElevation="2dp"
             app:cardPreventCornerOverlap="false"
             app:shapeAppearanceOverlay="@style/ShapeAppearance.Sunflower.Card"
@@ -42,7 +44,7 @@
             />
             <TextView
                     android:id="@+id/plant_date_header"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:gravity="center_horizontal"
@@ -53,6 +55,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/plant_name"/>
+
+
             <TextView
                     android:id="@+id/plant_date"
                     android:layout_width="0dp"

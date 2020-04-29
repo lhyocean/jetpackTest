@@ -28,4 +28,7 @@ data class GardenPlanting(
     @ColumnInfo(name = "id")
     var gardenPlantingId:Long=0
 
+    @ColumnInfo(name = "test_id")
+    var test_id:Int=8
+
 }

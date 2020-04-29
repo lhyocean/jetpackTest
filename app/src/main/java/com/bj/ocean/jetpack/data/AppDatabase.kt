@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
@@ -25,6 +26,12 @@ abstract class AppDatabase :RoomDatabase(){
     companion object{
       @Volatile private var instance:AppDatabase?=null
 
+        val MIGRATION_1_2: Migration = object : Migration(1, 2) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE garden_plantings ADD COLUMN test_id INTEGER NOT NULL DEFAULT 8 ")
+            }
+        }
+
       fun getInstance(context: Context) :AppDatabase{
 
          return instance?: synchronized(this){
@@ -42,11 +49,10 @@ abstract class AppDatabase :RoomDatabase(){
                   WorkManager.getInstance(context).enqueue(request)
                }
             })
+           //  .addMigrations(MIGRATION_1_2)
             .build()
 
       }
-
-
    }
 
 

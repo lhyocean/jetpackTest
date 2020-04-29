@@ -1,5 +1,9 @@
 package com.bj.ocean.jetpack.data
 
+import android.util.Log
+import java.util.*
+import kotlin.math.log
+
 /**
  * Created by ocean on 2020-04-23
  * @describe:
@@ -10,11 +14,14 @@ class GardenPlantingRepository private constructor(
 
     suspend fun createdGardenPlanting(plantId:String){
         val gardenPlanting=GardenPlanting(plantId)
+         gardenPlanting.test_id= Random().nextInt(10)
         gardenPlantingDao.insertGardenPlanting(gardenPlanting)
     }
+    suspend fun removeGardenPlanting(gardenPlanting: String) {
+    }
+
     fun isPlanted(plantId: String)=gardenPlantingDao.isPlanted(plantId)
     fun getPlantedGardens()=gardenPlantingDao.getPlantedGardens()
-
 
     companion object {
         @Volatile

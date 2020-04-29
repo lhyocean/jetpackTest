@@ -19,10 +19,6 @@ import com.google.android.material.tabs.TabLayoutMediator
  */
 class HomeViewPagerFragment :Fragment(){
 
-    companion object {
-        fun newInstance() = HomeViewPagerFragment()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
