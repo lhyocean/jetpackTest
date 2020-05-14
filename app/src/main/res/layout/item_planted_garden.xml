@@ -6,7 +6,7 @@
         <variable name="longClickListener" type="android.view.View.OnLongClickListener"/>
 
     </data>
-    <com.bj.ocean.jetpack.MaskedCardView
+    <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -113,5 +113,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.bj.ocean.jetpack.MaskedCardView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

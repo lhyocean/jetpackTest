@@ -39,7 +39,5 @@ class SeedDatabaseWorker(
             e.printStackTrace()
             Result.failure()
         }
-
-
     }
 }
